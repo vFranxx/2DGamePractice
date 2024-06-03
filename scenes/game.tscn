@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_ak1dx"]
 [ext_resource type="PackedScene" uid="uid://kqly57ftkjvd" path="res://scenes/player.tscn" id="1_cwatr"]
-[ext_resource type="FontFile" uid="uid://2eeik6i76p0u" path="res://fonts/PixelOperator8-Bold.ttf" id="2_a03kq"]
-[ext_resource type="Texture2D" uid="uid://dweuui22d171q" path="res://sprites/world_tileset.png" id="2_hwcbc"]
+[ext_resource type="FontFile" uid="uid://fxn4er8ve8f7" path="res://fonts/PixelOperator8-Bold.ttf" id="2_a03kq"]
+[ext_resource type="Texture2D" uid="uid://ccs8ngld0fhmw" path="res://sprites/world_tileset.png" id="2_hwcbc"]
 [ext_resource type="PackedScene" uid="uid://ctkae2uoc0ryu" path="res://scenes/platform_green.tscn" id="3_7dfau"]
 [ext_resource type="PackedScene" uid="uid://drnp37ua0c3mg" path="res://scenes/platform_yellow.tscn" id="4_1l0rs"]
 [ext_resource type="PackedScene" uid="uid://c7a8i2is6xawm" path="res://scenes/coin.tscn" id="5_ogq3v"]
 [ext_resource type="PackedScene" uid="uid://c0obxtsnaqwdi" path="res://scenes/killzone.tscn" id="6_sbmx8"]
 [ext_resource type="PackedScene" uid="uid://b8kbj0it41kpe" path="res://scenes/slime.tscn" id="7_vpr1r"]
-[ext_resource type="FontFile" uid="uid://buv742882fxml" path="res://fonts/PixelOperator8.ttf" id="9_u1w0u"]
+[ext_resource type="FontFile" uid="uid://tfnrv4juet07" path="res://fonts/PixelOperator8.ttf" id="9_u1w0u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8yvvt"]
 texture = ExtResource("2_hwcbc")
