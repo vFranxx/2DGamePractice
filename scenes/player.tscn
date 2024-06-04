@@ -1,8 +1,9 @@
-[gd_scene load_steps=27 format=3 uid="uid://kqly57ftkjvd"]
+[gd_scene load_steps=28 format=3 uid="uid://kqly57ftkjvd"]
 
 [ext_resource type="Texture2D" uid="uid://cuod2q8lstfm8" path="res://sprites/knight.png" id="1_synkr"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_v780b"]
 [ext_resource type="AudioStream" uid="uid://bs2i2162iipqr" path="res://sounds/jump.wav" id="3_c1v6e"]
+[ext_resource type="AudioStream" uid="uid://uj4l0xmw8w5w" path="res://sounds/tap.wav" id="4_g8n80"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fdwvm"]
 atlas = ExtResource("1_synkr")
@@ -194,3 +195,13 @@ one_shot = true
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_c1v6e")
 bus = &"SFX"
+
+[node name="RunSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_g8n80")
+bus = &"SFX"
+
+[node name="RunTimer" type="Timer" parent="RunSound"]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="timeout" from="RunSound/RunTimer" to="." method="_on_run_timer_timeout"]

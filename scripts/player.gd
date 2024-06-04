@@ -7,10 +7,13 @@ const JUMP_VELOCITY = -300.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var can_jump = false
+var sound_playing = false
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var coyote_timer = $CoyoteTimer
 @onready var jump_sound = $JumpSound
+@onready var run_sound = $RunSound
+@onready var run_timer = $RunSound/RunTimer
 
 func _physics_process(delta):
 	apply_gravity(delta)
@@ -28,10 +31,19 @@ func apply_gravity(delta):
 		velocity.y += gravity * delta
 
 func handle_player_movement(direction):
-	if direction:
+	if direction != 0:
 		velocity.x = direction * SPEED
+		
+		if is_on_floor() and not sound_playing:
+			run_sound.play()
+			run_timer.start()
+			sound_playing = true
+		
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+
+func _on_run_timer_timeout(): # Controls the sound while running
+	sound_playing = false	
 
 func handle_jump():
 	# Handle jump.
@@ -56,7 +68,7 @@ func handle_player_visuals(direction):
 func coyote_jump():
 	var was_on_floor = is_on_floor()
 	
-	if was_on_floor:
+	if was_on_floor && !Input.is_action_just_pressed("Jump"):
 		coyote_timer.start()
 		can_jump = true
 	elif coyote_timer.is_stopped():
